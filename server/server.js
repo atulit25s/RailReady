@@ -18,6 +18,8 @@ dotenv.config();
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import locomotiveRoutes from './routes/locomotiveRoutes.js';
+import inspectionRoutes from './routes/inspectionRoutes.js';
+import templateRoutes from './routes/templateRoutes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -83,6 +85,8 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/locomotives', locomotiveRoutes);
+app.use('/api/inspections', inspectionRoutes);
+app.use('/api/inspection-templates', templateRoutes);
 
 // Socket.IO event handler
 io.on('connection', (socket) => {
