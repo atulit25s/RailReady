@@ -25,6 +25,10 @@ import maintenanceRoutes from './routes/maintenanceRoutes.js';
 import readinessRoutes from './routes/readinessRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
 import deploymentRoutes from './routes/deploymentRoutes.js';
+import analyticsRoutes from './routes/analyticsRoutes.js';
+import reportRoutes from './routes/reportRoutes.js';
+import auditRoutes from './routes/auditRoutes.js';
+import notificationRoutes from './routes/notificationRoutes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -97,6 +101,10 @@ app.use('/api/maintenance', maintenanceRoutes);
 app.use('/api/readiness', readinessRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/deployments', deploymentRoutes);
+app.use('/api/analytics', analyticsRoutes);
+app.use('/api/reports', reportRoutes);
+app.use('/api/audit-logs', auditRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // Socket.IO event handler
 io.on('connection', (socket) => {
