@@ -21,6 +21,7 @@ import locomotiveRoutes from './routes/locomotiveRoutes.js';
 import inspectionRoutes from './routes/inspectionRoutes.js';
 import templateRoutes from './routes/templateRoutes.js';
 import defectRoutes from './routes/defectRoutes.js';
+import maintenanceRoutes from './routes/maintenanceRoutes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -89,6 +90,7 @@ app.use('/api/locomotives', locomotiveRoutes);
 app.use('/api/inspections', inspectionRoutes);
 app.use('/api/inspection-templates', templateRoutes);
 app.use('/api/defects', defectRoutes);
+app.use('/api/maintenance', maintenanceRoutes);
 
 // Socket.IO event handler
 io.on('connection', (socket) => {
