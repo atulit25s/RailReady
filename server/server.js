@@ -22,6 +22,9 @@ import inspectionRoutes from './routes/inspectionRoutes.js';
 import templateRoutes from './routes/templateRoutes.js';
 import defectRoutes from './routes/defectRoutes.js';
 import maintenanceRoutes from './routes/maintenanceRoutes.js';
+import readinessRoutes from './routes/readinessRoutes.js';
+import serviceRoutes from './routes/serviceRoutes.js';
+import deploymentRoutes from './routes/deploymentRoutes.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -91,6 +94,9 @@ app.use('/api/inspections', inspectionRoutes);
 app.use('/api/inspection-templates', templateRoutes);
 app.use('/api/defects', defectRoutes);
 app.use('/api/maintenance', maintenanceRoutes);
+app.use('/api/readiness', readinessRoutes);
+app.use('/api/services', serviceRoutes);
+app.use('/api/deployments', deploymentRoutes);
 
 // Socket.IO event handler
 io.on('connection', (socket) => {
