@@ -15,6 +15,9 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
+import authRoutes from './routes/authRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+
 const app = express();
 const server = http.createServer(app);
 
@@ -74,6 +77,10 @@ app.get('/api/health', (req, res) => {
     disclaimer: 'Academic software management platform. Not for real-world safety certification.'
   });
 });
+
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 // Socket.IO event handler
 io.on('connection', (socket) => {
